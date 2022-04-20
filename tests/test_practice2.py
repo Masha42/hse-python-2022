@@ -72,7 +72,7 @@ def test_is_amount_correct_fail(current_amount, transfer_amount):
         ('Per" rest\'aurant  ', 'Per restaurant'),
         ('Per restaurant kotleta!', 'Per restaurant #######!'),
         ('Per restaurant pirog!', 'Per restaurant #####!'),
-        ('Per restaurant pirog and kotleta!', 'Per restaurant ##### and #######!'),
+        ('  per restauRAnt pir\'og     aNd kotl\"eta!', 'Per restaurant ##### and #######!'),
     ],
 )
 def test_moderate_text(input_text, processed_text):
