@@ -65,3 +65,4 @@ def search_in_depth(structure: Any, name: str):
             if go_deeper:
                 return go_deeper
     return 0
+
