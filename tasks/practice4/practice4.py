@@ -40,4 +40,28 @@ def search_phone(content: Any, name: str) -> Optional[str]:
 
     # пиши свой код здесь
 
-    return None
+    user = search_in_depth(content, name)
+    if user:
+        return user[1]
+    else:
+        return None
+
+def search_in_depth(structure: Any, name: str):
+    if isinstance(structure, dict):
+        searching_area = list(structure.values())
+    else:
+        for i in structure:
+            list_search = search_in_depth(i, name)
+            if list_search:
+                return list_search
+        return 0
+    for i in searching_area:
+        if i == None:
+            return 0
+        if i == name:
+            return searching_area
+        if isinstance(i, dict) or isinstance(i, list):
+            go_deeper = search_in_depth(i, name)
+            if go_deeper:
+                return go_deeper
+    return 0
